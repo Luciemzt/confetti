@@ -42,13 +42,13 @@ User can select dates.
 -  **Signup:** As an anon I can sign up to the app so that I can start organising my Party 
 -  **Login:** As a user I can login to the app so that I can see my Bookings and manage them (edit, delete, add options) 
 -  **Logout:** As a user I can logout from the app so no one else can use it
--  **View Bookings** As a user I want to see a list of all the available places and also a view of each place individually
--  **Add Booking** As a user I can add a Place
--  **Edit Booking** As a user I can edit a Place
+-  **View Places** As a user I want to see a list of all the available places and also a view of each place individually
 -  **Create Place** As a user I can create a Place to book 
+-  **Add Booking** As a user I can add a Place to my user profile
+-  **Edit Booking** As a user I can edit a Place (that is in my profile)
 -  **Delete Booking** As a user I can delete a Booking
 -  **Add Options to the booking** As a user I can add Options to a booking
--  **Delete Option from the booking** As a user I can remove Options from a Booking
+-  **Delete Options from the booking** As a user I can remove Options from a Booking
 -  **View User profile** As a user I can see my profile
 -  **Edit User profile** As a user I can edit my profile
 
@@ -67,10 +67,13 @@ User can select dates.
 | `/`                       | HomePage             | public `<Route>`            | Home page                                                    |
 | `/signup`                 | SignupPage           | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
 | `/login`                  | LoginPage            | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login |
-| `/projects`               | ProjectsListPage     | user only `<PrivateRoute>`  | Page that shows all user´s projects in a list                |
-| `/projects/add`           | AddProjectForm       | user only `<PrivateRoute>`  | New project form, adds a new project and redirects to projects list once project has been added |
-| `/projects/:id`           | ProjectDetailPage    | user only `<PrivateRoute>`  | Page with the details of a project, an edit form, the tasks list, and a form to add new tasks |
-| `/profile`                | ProfilePage          | user only  `<PrivateRoute>` | Shows the user profile, that also renders an edit form  |                                         
+| `/profile`                | ProfilePage          | user only  `<PrivateRoute>` | Shows the user profile, that also renders an edit form  |      
+| `/places`               | PlacesListPage     | user only `<PrivateRoute>`  | Page that shows all places in a list                | 
+| `/places/:placeId`      | ProjectDetailPage    | user only `<PrivateRoute>`  | Page with the details of a place, and add to booking button  |
+| `/places/:placeId/booking` | BookingsPage     | user only `<PrivateRoute>`  | User can view his bookings.|
+| `/places/:id/booking/:bookingId` | BookingDetailPage     | user only `<PrivateRoute>`  | User can view one booking and manage it (add options, delete options, create options, delete the booking).|
+| `/logout`                |LogoutPage           | anon only  `<AnonRoute>`    | Log Out, the user getout.  |
+                                   
 
 
 ## Components
@@ -81,17 +84,24 @@ User can select dates.
 
 - SignupPage
 
-- BookingListPage  
+- PlacesListPage  
   * PlacesCard
-  * Delete button booking 
+  * View more button  
 
-- AddBookingForm
+- PlaceDetailsPage
+ * View the details of the place 
+ * Add to booking button
+
+-BookingPage
+ * BookingCard
+ * view more button 
 
 - BookingDetailPage
   * EditBookingForm
-  * OptionsList
-  * AddOptionsForm
-  * DeleteOptionButton
+  * BookingList
+  * CreateBookingForm
+  * EditBookingForm
+  * DeleteBookingButton
   
 - ProfilePage
   * EditProfileForm
