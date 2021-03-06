@@ -39,15 +39,16 @@ User can select dates.
 ## User Stories
 
 -  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
--  **Signup:** As an anon I can sign up to the app so that I can start creating my own projects
--  **Login:** As a user I can login to the app so that I can see my projects and manage them
+-  **Signup:** As an anon I can sign up to the app so that I can start organising my Party 
+-  **Login:** As a user I can login to the app so that I can see my Bookings and manage them (edit, delete, add options) 
 -  **Logout:** As a user I can logout from the app so no one else can use it
--  **View Projects** As a user I want to see a list of my project and also a view of each project individually
--  **Add Projects** As a user I can add a project
--  **Edit Projects** As a user I can edit a project
--  **Delete Projects** As a user I can delete a project
--  **Add Tasks** As a user I can add tasks to a project
--  **Delete Tasks** As a user I can remove tasks from a project
+-  **View Bookings** As a user I want to see a list of all the available places and also a view of each place individually
+-  **Add Booking** As a user I can add a Place
+-  **Edit Booking** As a user I can edit a Place
+-  **Create Place** As a user I can create a Place to book 
+-  **Delete Booking** As a user I can delete a Booking
+-  **Add Options to the booking** As a user I can add Options to a booking
+-  **Delete Option from the booking** As a user I can remove Options from a Booking
 -  **View User profile** As a user I can see my profile
 -  **Edit User profile** As a user I can edit my profile
 
@@ -80,17 +81,17 @@ User can select dates.
 
 - SignupPage
 
-- PlacesListPage  
+- BookingListPage  
   * PlacesCard
-  * DeleteProjectButton
+  * Delete button booking 
 
-- AddProjectForm
+- AddBookingForm
 
-- ProjectDetailPage
-  * EditProjectForm
-  * TasksList
-  * AddTaskForm
-  * DeleteTaskButton
+- BookingDetailPage
+  * EditBookingForm
+  * OptionsList
+  * AddOptionsForm
+  * DeleteOptionButton
   
 - ProfilePage
   * EditProfileForm
@@ -114,14 +115,15 @@ User can select dates.
 
 - Places Service
   - placesApi.list()
-  - placesApi.addProject(places)
+  - placesApi.addPlaces(places)
   - placesApi.getProjectDetails(placesId)
-  - placesApi.editProject(placesId, placesBody)
-  - placesApi.deleteProject(placesId)
+
   
-- Options Service
-  - OptionsApi.addOption(projectId, optionsBody)
-  - OptionsApi.deleteOption(projectId, optionsId)
+- Booking Service
+  - bookingApi.addOption(placeId, bookingBody)
+  - bookingApi.deleteOption(placeId, bookingId)
+  - bookingApi.editBooking(placeId, bookingBody)
+  - bookingApi.deleteProject(placesId,bookingId)
   
 
 <br>
@@ -143,18 +145,19 @@ User model
 }
 ```
 
-Project model
+Places model
 
 ```javascript
 {
   title: String,
   description: String,
-  options: [ { type: mongoose.Schema.Types.ObjectId, ref: "Task" } ],
+  adresse: String,
+  options: [ { type: mongoose.Schema.Types.ObjectId, ref: "Booking" } ],
 },
 ```
 
 
-Option model
+Booking model
 
 ```javascript
 {
