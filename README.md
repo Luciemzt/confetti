@@ -53,11 +53,6 @@ User can select dates.
 
 
 ## Backlog
-- delete user profile
-- edit tasks
-- drog and drop my projects
-- see other users´ public projects
-- add project deadlines to calendar
 - ...
 
 <br>
@@ -85,8 +80,8 @@ User can select dates.
 
 - SignupPage
 
-- ProjectsListPage  
-  * ProjectCard
+- PlacesListPage  
+  * PlacesCard
   * DeleteProjectButton
 
 - AddProjectForm
@@ -117,16 +112,16 @@ User can select dates.
   - authApi.signup(user)
   - authApi.logout()
 
-- Projects Service
-  - projectsApi.list()
-  - projectsApi.addProject(project)
-  - projectsApi.getProjectDetails(projectId)
-  - projectsApi.editProject(projectId, projectBody)
-  - projectsApi.deleteProject(projectId)
+- Places Service
+  - placesApi.list()
+  - placesApi.addProject(places)
+  - placesApi.getProjectDetails(placesId)
+  - placesApi.editProject(placesId, placesBody)
+  - placesApi.deleteProject(placesId)
   
-- Tasks Service
-  - tasksApi.addTask(projectId, taskBody)
-  - tasksApi.deleteTask(projectId, taskId)
+- Options Service
+  - OptionsApi.addOption(projectId, optionsBody)
+  - OptionsApi.deleteOption(projectId, optionsId)
   
 
 <br>
@@ -154,12 +149,12 @@ Project model
 {
   title: String,
   description: String,
-  tasks: [ { type: mongoose.Schema.Types.ObjectId, ref: "Task" } ],
+  options: [ { type: mongoose.Schema.Types.ObjectId, ref: "Task" } ],
 },
 ```
 
 
-Task model
+Option model
 
 ```javascript
 {
