@@ -4,7 +4,8 @@
   "description": "Mac-Donald para crear fiestas.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "seed": "node seed/seed.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,9 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongoose": "^5.11.18",
-    "nodemon": "^2.0.7"
+    "node": "^15.10.0",
+    "nodemon": "^2.0.7",
+    "seed-js": "^0.0.11"
   },
   "repository": {
     "type": "git",

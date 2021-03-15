@@ -1,6 +1,6 @@
 const Booking = require("../model/booking.model")
 
-exports.getUserBooking = async(req, res) => {
+exports.getBooking = async(req, res) => {
     try {
         const userId = req.session.currentUser;
         const {placeId} = req.params;
@@ -8,20 +8,33 @@ exports.getUserBooking = async(req, res) => {
             const user = await User.findById(userId).lean();
             const place = await Place.findById(placeId).lean();  
             const isBooked = String(userId) === String(booking.bowed);
-
         }
         res.status(200).json(allPlaces)
     } catch (error) {
-        return res.status(400).json({ message: "error when getting the places" })
+        return res.status(400).json({ message: "error when getting the bookings" })
     }
 }
 
-exports.getPlace = async(req, res) => {
+
+exports.editBooking = async(req, res) => {
     try {
-        const {placeId} = req.params
-        const place = await Place.findById(placeId).lean()
-        res.status(200).json(place)
+        const { bookingId } = req.params;
+        const deletedBooking = await Booking.findByIdAndDelete(bookingId);
+        res.status(200).json(deleteBooking)
     } catch (error) {
-        return res.status(400).json({ message: "error when getting the place" })
+        return res.status(400).json({ message: "error when editing bookings" })
+    }
+}
+/// edit booking 
+
+//Delete booking 
+
+exports.deleteBooking = async(req, res) => {
+    try {
+        const { bookingId } = req.params;
+        const deletedBooking = await Booking.findByIdAndDelete(bookingId);
+        res.status(200).json(deleteBooking)
+    } catch (error) {
+        return res.status(400).json({ message: "error when deleting bookings" })
     }
 }
