@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "seed": "node seed/seed.js"
+    "seed": "node seed/seed.js",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,8 +22,7 @@
     "express-session": "^1.17.1",
     "mongoose": "^5.11.18",
     "node": "^15.10.0",
-    "nodemon": "^2.0.7",
-    "seed-js": "^0.0.11"
+    "nodemon": "^2.0.7"
   },
   "repository": {
     "type": "git",
