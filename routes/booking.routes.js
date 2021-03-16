@@ -1,9 +1,11 @@
 const { Router } = require("express");
 const route = Router();
-const { getBooking, editBooking, deleteBooking } = require(""../controllers/booking.controllers")
+const { getBookings, getBooking, createBooking, editBooking, deleteBooking } = require("../controllers/booking.controllers")
 
 route
-.post("/booking", getBooking) // creat & save a booking 
+.get("/", getBooking) // save a booking 
+.get("/booking", getBookings) // save a booking 
+.post("/booking", createBooking) // create a booking 
 .put("/booking/:bookingId", editBooking) // edit Booking
 .delete("/booking/:bookingId", deleteBooking) //delete booking 
 

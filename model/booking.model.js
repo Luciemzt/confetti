@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const BookingSchema = new mongoose.Schema({
-    options: [string],
+    options: [String],
     place_id : String,
 });
 
