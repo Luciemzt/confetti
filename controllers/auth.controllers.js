@@ -14,7 +14,7 @@ exports.signup = async (req, res) => {
       return res.status(400).json({ message: "missing credentials" });
     }
 
-/*     if (!hasCorrectPasswordFormat(password)) {
+    /*     if (!hasCorrectPasswordFormat(password)) {
       return res.status(400).json({ message: "incorrect password format" });
     } */
 
@@ -46,7 +46,9 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { password, email } = req.body;
+    console.log("req.body", req.body);
     const hasMissingCredentials = !password || !email;
+    console.log("missing", hasMissingCredentials);
     if (hasMissingCredentials) {
       return res.status(400).json({ message: "missing credentials" });
     }
