@@ -5,11 +5,7 @@ const PlaceSchema = new mongoose.Schema({
     description: String,
     adress: String,
     type: String,
-    imageURL: {
-        type: String,
-        default:
-          "https://bs.floristic.org/image/o/https://assets.afcdn.com/recipe/20180705/80346_w1024h1024c1cx1727cy777.webp",
-      },
+    imageURL: String,
 });
 
 module.exports = mongoose.model("Place", PlaceSchema);

@@ -1,4 +1,4 @@
-const place = [
+const places = [
 {
     name: "First Cocktail Bar Barcelona",
     description: "Chill & nice",
@@ -29,4 +29,4 @@ const place = [
 },
 ]
 
-module.exports = {place}; 
+module.exports = {places}; 

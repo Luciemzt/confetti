@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
   },
   Booking: [ 
     { type: mongoose.Schema.Types.ObjectId, 
-      ref: "¨Booking" } 
+      ref: "Booking" } 
     ]
 });
 
