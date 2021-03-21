@@ -53,9 +53,9 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "missing credentials" });
     }
 
-    if (!hasCorrectPasswordFormat(password)) {
-      return res.status(400).json({ message: "incorrect password format" });
-    }
+    // if (!hasCorrectPasswordFormat(password)) {
+    //   return res.status(400).json({ message: "incorrect password format" });
+    // }
 
     const user = await User.findOne({ email });
     if (!user) {
