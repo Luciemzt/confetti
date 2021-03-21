@@ -7,13 +7,12 @@ exports.getBookings = async (req, res) => {
     if (userId) {
       const user = await User.findById(userId).lean();
       const place = await Place.findById(placeId).lean();
-      //const isBooked = String(userId) === String(booking.bowed);
+      const isBooked = String(userId) === String(booking.booked);
+      res.status(200).json(allBookings);
+
     }
-    //res.status(200).json(allPlaces);
   } catch (error) {
-    return res
-      .status(400)
-      .json({ message: "error while getting the bookings" });
+    return res.status(400).json({ message: "error while getting the bookings" });
   }
 };
 

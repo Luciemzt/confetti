@@ -27,5 +27,21 @@ const places = [
     type: "Tapas", 
     imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/04/31/dd/5c/bar-restaurante-andorra.jpg"
 }
+]
 
-module.exports = {places}; 
+const booking = [
+    {
+        option: "Music" 
+    },
+    {
+        option: "Animation" 
+    },
+    {
+        option: "Food" 
+    },
+    {
+        option: "Confettis" 
+    }
+]
+
+module.exports = {places , booking}; 

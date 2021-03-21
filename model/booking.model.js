@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 
 const BookingSchema = new mongoose.Schema({
-    options: {
-        beverages: [String],
-        foods: [String],
-        customOptions: String,
-      },
+        Option: String, 
     place_id : { type: mongoose.Schema.Types.ObjectId, 
         ref: "Place" },
 });
