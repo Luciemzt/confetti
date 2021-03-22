@@ -12,9 +12,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  place_id: [ 
+  bookings: [ 
     { type: mongoose.Schema.Types.ObjectId, 
-      ref: "Place" } 
+      ref: "Booking" } 
     ]
 });
 
