@@ -29,19 +29,6 @@ const places = [
 }
 ]
 
-const booking = [
-    {
-        option: "Music" 
-    },
-    {
-        option: "Animation" 
-    },
-    {
-        option: "Food" 
-    },
-    {
-        option: "Confettis" 
-    }
-]
 
-module.exports = {places , booking}; 
+
+module.exports = {places }; 
