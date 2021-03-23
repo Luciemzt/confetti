@@ -1,14 +1,12 @@
 const { Router } = require("express");
 const route = Router();
 const { getBookings, createBooking, editBooking, deleteBooking } = require("../controllers/booking.controllers")
-
 route
 //.get("/", getBooking) // save a booking 
-.get("/booking", getBookings) // save a booking 
-.post("/booking", createBooking) // create a booking 
-.put("/booking/:bookingId", editBooking) // edit Booking
-.delete("/booking/:bookingId", deleteBooking) //delete booking 
-
+.get("/", getBookings) // save a booking 
+.post("/", createBooking) // create a booking 
+.put("/:bookingId", editBooking) // edit Booking
+.delete("/:bookingId", deleteBooking) //delete booking 
 module.exports = route
 
 //POST	/api/booking

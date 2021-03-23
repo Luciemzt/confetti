@@ -1,4 +1,5 @@
 const Booking = require("../model/booking.model");
+const User = require("../model/user.model");
 
 exports.getBookings = async (req, res) => {
   try {
@@ -13,21 +14,7 @@ exports.getBookings = async (req, res) => {
   }
 };
 
-/* exports.getBooking = async (req, res) => {
-  try {
-    const { userId } = req.session;
-    const { placeId } = req.params;
-    if (userId) {
-      const user = await User.findById(userId).lean();
-      const place = await Place.findById(placeId).lean();
-    }
-    res.status(200).json();
-  } catch (error) {
-    return res
-      .status(400)
-      .json({ message: "error while getting the bookings" });
-  }
-}; */
+
 
 exports.editBooking = async (req, res) => {
   try {
@@ -41,14 +28,23 @@ exports.editBooking = async (req, res) => {
 
 exports.createBooking = async (req, res) => {
   try {
+    const { options, quantity, date, placeId } = req.body
     const { userId } = req.session;
-    const createBooking = await Booking.create(req.body);
+    console.log(`userId`, userId)
+    const createBooking = await Booking.create({
+      options,
+      quantity: Number(quantity),
+      date: new Date(date),
+      user_id: userId,
+      place_id: placeId
+    });
     await User.findByIdAndUpdate(userId, {$push:{bookings:createBooking._id}})
     res.status(200).json(createBooking);
   } catch (error) {
     return res.status(400).json({ message: "error while creating bookings" });
   }
 };
+
 exports.deleteBooking = async (req, res) => {
   try {
     const { bookingId } = req.params;
