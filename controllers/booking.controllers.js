@@ -5,8 +5,10 @@ exports.getBookings = async (req, res) => {
   try {
     const { userId } = req.session;
     //const { placeId } = req.params;
+    console.log("userId", userId)
     if (userId) {
-      const allBookings = Booking.find({user_id:userId})
+      const allBookings = await Booking.find({user_id:userId})
+      console.log("allBookings", allBookings)
           res.status(200).json(allBookings);
     }
   } catch (error) {
@@ -38,6 +40,7 @@ exports.createBooking = async (req, res) => {
       user_id: userId,
       place_id: placeId
     });
+    console.log("createBooking", createBooking)
     await User.findByIdAndUpdate(userId, {$push:{bookings:createBooking._id}})
     res.status(200).json(createBooking);
   } catch (error) {
