@@ -7,7 +7,7 @@ exports.getBookings = async (req, res) => {
     //const { placeId } = req.params;
     console.log("userId", userId)
     if (userId) {
-      const allBookings = await Booking.find({user_id:userId})
+      const allBookings = await Booking.find({user_id:userId}).populate("place_id")
       console.log("allBookings", allBookings)
           res.status(200).json(allBookings);
     }
@@ -20,8 +20,14 @@ exports.getBookings = async (req, res) => {
 
 exports.editBooking = async (req, res) => {
   try {
+    console.log("reqbody", req.body)
     const { bookingId } = req.params;
-    const editBooking = await Booking.findByIdAndUpdate(bookingId, req.body);
+    const editBooking = await Booking.findByIdAndUpdate(bookingId, {
+      options: req.body.options,
+      quantity: Number(req.body.quantity),
+      date: new Date(req.body.date),
+    });
+    console.log("editBooking", editBooking)
     res.status(200).json(editBooking);
   } catch (error) {
     return res.status(400).json({ message: "error while editing bookings" });
