@@ -75,10 +75,29 @@ const places = [
     adress: "Carrer de Joaquín Costa, 46, 08001 Barcelona",
     type: "Cocktail bars", 
     imageURL: "https://media.timeout.com/images/103836871/380/285/image.jpg"
-}
-
+},
+{
+    name: "Aji",
+    description: "Restaurant",
+    adress: "Carrer de la Marina, 19, 08005 Barcelona",
+    type: "Japonese", 
+    imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/15/f5/ff/93/restaurant-aji-y-su-magnifica.jpg"
+},
+{
+    name: "Carpe Diem",
+    description: "Restaurant",
+    adress: " Passeig Marítim, 32, 08003 Barcelona",
+    type: "Indian Food", 
+    imageURL: "https://res.cloudinary.com/tf-lab/image/upload/restaurant/a17985f0-fc07-45bb-b37f-bbcf30dd80c1/c69ad9be-943e-4a45-b891-b19196ccb303.jpg"
+},
+{
+    name: "Obama Bar",
+    description: "Restaurant",
+    adress: " Gran Via de les Corts, 603, 08007 Barcelona,",
+    type: "English Pub", 
+    imageURL: "https://obamabcn.com/wp-content/uploads/2019/03/obama-barcelona-pub.jpg"
+},
 ]
-
 
 
 module.exports = {places }; 
